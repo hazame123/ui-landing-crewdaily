@@ -1,6 +1,8 @@
 "use client";
 
 import { motion, MotionValue } from "framer-motion";
+import { useState } from "react";
+import SignupModal from "./SignupModal";
 
 interface HeroProps {
   heroY: MotionValue<number>;
@@ -8,7 +10,10 @@ interface HeroProps {
 }
 
 export default function Hero({ heroY, heroOpacity }: HeroProps) {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
   return (
+    <>
     <section className="relative overflow-hidden min-h-screen flex items-center justify-center">
       <motion.div
         style={{ y: heroY, opacity: heroOpacity }}
@@ -52,6 +57,7 @@ export default function Hero({ heroY, heroOpacity }: HeroProps) {
           </motion.p>
           
           <motion.button
+            onClick={() => setIsModalOpen(true)}
             whileHover={{ 
               scale: 1.05,
               boxShadow: "0 20px 40px rgba(16,185,129,0.3)"
@@ -107,5 +113,12 @@ export default function Hero({ heroY, heroOpacity }: HeroProps) {
         }}
       />
     </section>
+      
+      <SignupModal 
+        isOpen={isModalOpen} 
+        onClose={() => setIsModalOpen(false)}
+        initialEmail={undefined}
+      />
+    </>
   );
 }

@@ -2,6 +2,8 @@
 
 import { motion } from "framer-motion";
 import { Check } from "lucide-react";
+import { useState } from "react";
+import SignupModal from "./SignupModal";
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -33,6 +35,8 @@ const itemVariants = {
 };
 
 export default function Pricing() {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  
   const plans = [
     {
       name: "Daily Crew",
@@ -62,7 +66,7 @@ export default function Pricing() {
         "Educational support"
       ],
       popular: false,
-      cta: "Sign Up Free",
+      cta: "Coming Soon",
     },
     {
       name: "Department",
@@ -77,7 +81,7 @@ export default function Pricing() {
         "Priority support"
       ],
       popular: false,
-      cta: "Contact Sales",
+      cta: "Coming Soon",
     },
     {
       name: "Production",
@@ -93,11 +97,21 @@ export default function Pricing() {
         "Custom integrations"
       ],
       popular: false,
-      cta: "Contact Sales",
+      cta: "Coming Soon",
     },
   ];
 
+  const handleCTAClick = (cta: string) => {
+    if (cta === "Get Early Access") {
+      setIsModalOpen(true);
+    } else {
+      // Handle other CTAs (Contact Sales, etc.)
+      console.log(`${cta} clicked`);
+    }
+  };
+
   return (
+    <>
     <section className="py-32 bg-zinc-950 relative z-10">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
@@ -246,6 +260,7 @@ export default function Pricing() {
                 </motion.ul>
 
                 <motion.button
+                  onClick={() => handleCTAClick(plan.cta)}
                   className={`w-full py-4 px-6 rounded-xl font-semibold transition-all duration-300 ${
                     plan.popular
                       ? "bg-gradient-to-r from-emerald-500 to-cyan-500 text-black hover:from-emerald-400 hover:to-cyan-400"
@@ -277,5 +292,12 @@ export default function Pricing() {
         </motion.div>
       </div>
     </section>
+      
+      <SignupModal 
+        isOpen={isModalOpen} 
+        onClose={() => setIsModalOpen(false)}
+        initialEmail={undefined}
+      />
+    </>
   );
 }

@@ -2,17 +2,24 @@
 
 import { motion } from "framer-motion";
 import { useState } from "react";
+import SignupModal from "./SignupModal";
 
 export default function Newsletter() {
   const [email, setEmail] = useState("");
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const isValidEmail = (email: string) => {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return emailRegex.test(email);
+  };
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    console.log("Email submitted:", email);
-    setEmail("");
+    setIsModalOpen(true);
   };
 
   return (
+    <>
     <section className="py-32 bg-zinc-950 relative z-10 overflow-hidden">
       {/* Background Effects */}
       <motion.div
@@ -52,6 +59,7 @@ Sign up before September 2025 and get your Daily Crew membership free for a full
           
           <motion.form 
             onSubmit={handleSubmit} 
+            noValidate
             className="flex flex-col sm:flex-row gap-4 max-w-md mx-auto"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -64,7 +72,6 @@ Sign up before September 2025 and get your Daily Crew membership free for a full
               onChange={(e) => setEmail(e.target.value)}
               placeholder="Enter your email"
               className="flex-1 px-6 py-4 bg-zinc-800 border border-zinc-700 rounded-full text-white placeholder-zinc-500 focus:outline-none focus:border-emerald-400 transition-colors"
-              required
               whileFocus={{ 
                 scale: 1.01,
                 borderColor: "#10b981"
@@ -85,5 +92,12 @@ Sign up before September 2025 and get your Daily Crew membership free for a full
         </motion.div>
       </div>
     </section>
+      
+      <SignupModal 
+        isOpen={isModalOpen} 
+        onClose={() => setIsModalOpen(false)}
+        initialEmail={isValidEmail(email) ? email : undefined}
+      />
+    </>
   );
 }
