@@ -8,16 +8,16 @@ const containerVariants = {
     opacity: 1,
     transition: {
       staggerChildren: 0.15,
-      delayChildren: 0.1
-    }
-  }
+      delayChildren: 0.1,
+    },
+  },
 };
 
 const itemVariants = {
-  hidden: { 
-    opacity: 0, 
+  hidden: {
+    opacity: 0,
     y: 30,
-    scale: 0.95
+    scale: 0.95,
   },
   visible: {
     opacity: 1,
@@ -26,16 +26,16 @@ const itemVariants = {
     transition: {
       type: "spring" as const,
       duration: 1.2,
-      bounce: 0.1
-    }
-  }
+      bounce: 0.1,
+    },
+  },
 };
 
 export default function SocialProof() {
   const stats = [
-    { number: "500+", label: "Productions using CrewDaily" },
-    { number: "10k+", label: "Crew members onboarded" },
-    { number: "99.9%", label: "Uptime reliability" }
+    { number: "Nov 25", label: "Production ready launch" },
+    { number: "£5/mo", label: "Affordable crew membership" },
+    { number: "Private", label: "Trusted network hiring" },
   ];
 
   return (
@@ -47,17 +47,17 @@ export default function SocialProof() {
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
         >
-          <motion.h2 
+          <motion.h2
             className="text-4xl md:text-5xl font-bold text-white mb-12 tracking-tight"
             initial={{ opacity: 0, scale: 0.9 }}
             whileInView={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8, delay: 0.2 }}
             viewport={{ once: true }}
           >
-            Trusted by Productions Worldwide
+            Join the Action
           </motion.h2>
-          
-          <motion.div 
+
+          <motion.div
             className="grid md:grid-cols-3 gap-12 text-center"
             variants={containerVariants}
             initial="hidden"
@@ -68,9 +68,9 @@ export default function SocialProof() {
               <motion.div
                 key={index}
                 variants={itemVariants}
-                whileHover={{ 
+                whileHover={{
                   scale: 1.03,
-                  transition: { duration: 0.4 }
+                  transition: { duration: 0.4 },
                 }}
                 className="relative group"
               >
@@ -81,23 +81,23 @@ export default function SocialProof() {
                   whileHover={{ opacity: 1 }}
                   transition={{ duration: 0.3 }}
                 />
-                
+
                 <div className="relative z-10 p-6">
-                  <motion.div 
+                  <motion.div
                     className="text-5xl font-bold text-emerald-400 mb-2"
                     initial={{ scale: 0.8, opacity: 0 }}
                     whileInView={{ scale: 1, opacity: 1 }}
-                    transition={{ 
+                    transition={{
                       duration: 1.0,
                       delay: index * 0.15,
                       type: "spring",
-                      bounce: 0.1
+                      bounce: 0.1,
                     }}
                     viewport={{ once: true }}
                   >
                     {stat.number}
                   </motion.div>
-                  <motion.div 
+                  <motion.div
                     className="text-zinc-400 font-light"
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
