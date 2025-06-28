@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Calendar, Users, Shield } from "lucide-react";
+import { Building2, Calendar, Users } from "lucide-react";
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -36,21 +36,21 @@ export default function HowItWorks() {
   const steps = [
     {
       number: "01",
-      title: "Create",
-      description: "Set up shifts and crew requirements",
-      icon: Calendar,
+      title: "Setup Production",
+      description: "Add departments, invite heads, and create your team structure",
+      icon: Building2,
     },
     {
       number: "02", 
-      title: "Book",
-      description: "Crew members apply and get confirmed",
-      icon: Users,
+      title: "Schedule Shoots",
+      description: "Add shoot days and department-specific prep events to the calendar",
+      icon: Calendar,
     },
     {
       number: "03",
-      title: "Manage",
-      description: "Track time, files, and communications",
-      icon: Shield,
+      title: "Book Your Circle",
+      description: "Invite trusted crew to apply for shifts within your network",
+      icon: Users,
     },
   ];
 
@@ -71,7 +71,7 @@ export default function HowItWorks() {
             transition={{ duration: 0.8, delay: 0.2 }}
             viewport={{ once: true }}
           >
-            Three Simple Steps
+            How CrewDaily Works
           </motion.h2>
         </motion.div>
         

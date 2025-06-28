@@ -37,7 +37,7 @@ export default function Newsletter() {
             transition={{ duration: 0.8, delay: 0.2 }}
             viewport={{ once: true }}
           >
-            Ready to Get Started?
+Join the Early Access List
           </motion.h2>
           
           <motion.p 
@@ -47,7 +47,7 @@ export default function Newsletter() {
             transition={{ duration: 0.6, delay: 0.4 }}
             viewport={{ once: true }}
           >
-            Join the waitlist for early access
+Be first to know when CrewDaily launches and get free access during beta
           </motion.p>
           
           <motion.form 
@@ -79,7 +79,7 @@ export default function Newsletter() {
               type="submit"
               className="px-8 py-4 bg-gradient-to-r from-emerald-500 to-cyan-500 text-black rounded-full font-semibold hover:from-emerald-400 hover:to-cyan-400 transition-all duration-300 shadow-lg"
             >
-              Join Waitlist
+  Get Early Access
             </motion.button>
           </motion.form>
         </motion.div>

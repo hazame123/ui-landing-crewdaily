@@ -30,7 +30,7 @@ export default function Hero({ heroY, heroOpacity }: HeroProps) {
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8, delay: 0.5 }}
             >
-              Crew Booking,{" "}
+              Daily Crew Hiring,{" "}
             </motion.span>
             <motion.span 
               className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-cyan-400"
@@ -48,7 +48,7 @@ export default function Hero({ heroY, heroOpacity }: HeroProps) {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 1 }}
           >
-            The modern way to manage film & TV production crews
+            Replace spreadsheets and WhatsApp with streamlined crew management for film & TV productions
           </motion.p>
           
           <motion.button
@@ -62,7 +62,7 @@ export default function Hero({ heroY, heroOpacity }: HeroProps) {
             transition={{ duration: 0.8, delay: 1.2 }}
             className="px-12 py-4 bg-gradient-to-r from-emerald-500 to-cyan-500 text-black rounded-full font-semibold text-lg hover:from-emerald-400 hover:to-cyan-400 transition-all duration-300 shadow-lg"
           >
-            Join Waitlist
+            Get Early Access
           </motion.button>
         </motion.div>
       </motion.div>

@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Calendar, Zap, Shield, Gauge } from "lucide-react";
+import { Users, Calendar, Lock, Network } from "lucide-react";
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -35,24 +35,24 @@ const itemVariants = {
 export default function Features() {
   const features = [
     {
-      title: "Smart Scheduling",
-      description: "Intelligent crew matching and availability tracking",
+      title: "Department Management",
+      description: "Organize productions by departments with role-based permissions",
+      icon: Users,
+    },
+    {
+      title: "Unified Calendar",
+      description: "Shoot days sync across departments, with custom prep events",
       icon: Calendar,
     },
     {
-      title: "Real-time Updates",
-      description: "Instant notifications and seamless communication",
-      icon: Zap,
+      title: "Private Networks",
+      description: "Keep shifts within your trusted crew circle, not public job boards",
+      icon: Lock,
     },
     {
-      title: "Secure & Compliant",
-      description: "Industry-standard security with role-based access",
-      icon: Shield,
-    },
-    {
-      title: "Analytics & Reports",
-      description: "Deep insights into your production workflows",
-      icon: Gauge,
+      title: "Streamlined Booking",
+      description: "Replace spreadsheets and WhatsApp with automated availability tracking",
+      icon: Network,
     },
   ];
 
@@ -73,7 +73,7 @@ export default function Features() {
             transition={{ duration: 0.8, delay: 0.2 }}
             viewport={{ once: true }}
           >
-            Built for Production
+            Built for Film & TV
           </motion.h2>
         </motion.div>
         

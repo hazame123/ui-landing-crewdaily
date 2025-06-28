@@ -35,47 +35,62 @@ const itemVariants = {
 export default function Pricing() {
   const plans = [
     {
-      name: "Starter",
-      price: "Free",
-      period: "Forever",
-      description: "Perfect for small indie productions",
-      features: [
-        "Up to 5 crew members",
-        "Basic scheduling",
-        "Email notifications",
-        "Community support"
-      ],
-      popular: false,
-      cta: "Get Started",
-    },
-    {
-      name: "Professional",
-      price: "$49",
+      name: "Daily Crew",
+      price: "£5",
       period: "/month",
-      description: "For growing production companies",
+      description: "For freelance crew seeking work",
       features: [
-        "Up to 50 crew members",
-        "Advanced scheduling",
-        "Real-time notifications",
-        "Priority support",
-        "Custom reports",
-        "File sharing"
+        "Browse available shifts",
+        "Set your availability",
+        "Calendar view of bookings",
+        "Apply to trusted networks",
+        "Direct messaging"
       ],
       popular: true,
-      cta: "Start Free Trial",
+      cta: "Get Early Access",
+      note: "Free until official launch"
     },
     {
-      name: "Enterprise",
-      price: "Custom",
-      period: "",
-      description: "For large studios and productions",
+      name: "Student",
+      price: "Free",
+      period: "Forever",
+      description: "For student film projects",
       features: [
-        "Unlimited crew members",
-        "Custom integrations",
-        "Dedicated support",
-        "Advanced analytics",
-        "White-label option",
-        "SLA guarantee"
+        "Up to 10 crew members",
+        "Basic scheduling",
+        "Project management",
+        "Educational support"
+      ],
+      popular: false,
+      cta: "Sign Up Free",
+    },
+    {
+      name: "Department",
+      price: "£250",
+      period: "/month",
+      description: "Single department crew management",
+      features: [
+        "Department-specific booking",
+        "Up to 10 department users",
+        "Crew network access",
+        "Advanced scheduling",
+        "Priority support"
+      ],
+      popular: false,
+      cta: "Contact Sales",
+    },
+    {
+      name: "Production",
+      price: "£900",
+      period: "/month",
+      description: "Full production crew management",
+      features: [
+        "All departments included",
+        "Unlimited production users", 
+        "Cross-department scheduling",
+        "Private crew networks",
+        "Dedicated account manager",
+        "Custom integrations"
       ],
       popular: false,
       cta: "Contact Sales",
@@ -108,12 +123,12 @@ export default function Pricing() {
             transition={{ duration: 0.6, delay: 0.4 }}
             viewport={{ once: true }}
           >
-            Choose the plan that scales with your production
+            Pricing that works for everyone in film & TV
           </motion.p>
         </motion.div>
 
         <motion.div 
-          className="grid lg:grid-cols-3 gap-8 max-w-6xl mx-auto"
+          className="grid lg:grid-cols-4 gap-6 max-w-7xl mx-auto"
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
@@ -183,7 +198,7 @@ export default function Pricing() {
                   </motion.div>
                   
                   <motion.p 
-                    className="text-zinc-400 font-light mb-8"
+                    className="text-zinc-400 font-light mb-6"
                     initial={{ opacity: 0 }}
                     whileInView={{ opacity: 1 }}
                     transition={{ duration: 0.6, delay: 0.5 + index * 0.1 }}
@@ -191,10 +206,22 @@ export default function Pricing() {
                   >
                     {plan.description}
                   </motion.p>
+                  
+                  {plan.note && (
+                    <motion.p 
+                      className="text-emerald-400 font-semibold text-sm mb-6"
+                      initial={{ opacity: 0 }}
+                      whileInView={{ opacity: 1 }}
+                      transition={{ duration: 0.6, delay: 0.5 + index * 0.1 }}
+                      viewport={{ once: true }}
+                    >
+                      {plan.note}
+                    </motion.p>
+                  )}
                 </div>
 
                 <motion.ul 
-                  className="space-y-4 mb-8"
+                  className="space-y-3 mb-8"
                   initial={{ opacity: 0 }}
                   whileInView={{ opacity: 1 }}
                   transition={{ duration: 0.6, delay: 0.6 + index * 0.1 }}
@@ -246,7 +273,7 @@ export default function Pricing() {
           viewport={{ once: true }}
         >
           <p className="text-zinc-400 font-light">
-            All plans include 14-day free trial • No credit card required • Cancel anytime
+            Early access launching soon • Free for crew until official launch • No commitment required
           </p>
         </motion.div>
       </div>

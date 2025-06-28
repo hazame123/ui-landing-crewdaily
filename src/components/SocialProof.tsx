@@ -33,9 +33,9 @@ const itemVariants = {
 
 export default function SocialProof() {
   const stats = [
-    { number: "500+", label: "Productions using CrewDaily" },
-    { number: "10k+", label: "Crew members onboarded" },
-    { number: "99.9%", label: "Uptime reliability" }
+    { number: "Coming Soon", label: "Early access launching" },
+    { number: "£5/month", label: "Affordable crew membership" },
+    { number: "Private", label: "Trusted network hiring" }
   ];
 
   return (
