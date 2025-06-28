@@ -48,7 +48,7 @@ export default function Pricing() {
       ],
       popular: true,
       cta: "Get Early Access",
-      note: "Free until official launch"
+      note: "Sign up before Sep 2025 for your first year free (Sep 2025 - Sep 2026)"
     },
     {
       name: "Student",
@@ -273,7 +273,6 @@ export default function Pricing() {
           viewport={{ once: true }}
         >
           <p className="text-zinc-400 font-light">
-            Early access launching soon • Free for crew until official launch • No commitment required
           </p>
         </motion.div>
       </div>

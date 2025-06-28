@@ -47,7 +47,7 @@ Join the Early Access List
             transition={{ duration: 0.6, delay: 0.4 }}
             viewport={{ once: true }}
           >
-Be first to know when CrewDaily launches and get free access during beta
+Sign up before September 2025 and get your Daily Crew membership free for a full year
           </motion.p>
           
           <motion.form 
