@@ -35,29 +35,29 @@ const itemVariants = {
 export default function Features() {
   const features = [
     {
-      title: "Department Management",
-      description: "Organize productions by departments with role-based permissions",
+      title: "Film Crew Department Management",
+      description: "Organize film productions by departments with role-based permissions for camera, sound, lighting, and all crew positions",
       icon: Users,
     },
     {
-      title: "Unified Calendar",
-      description: "Shoot days sync across departments, with custom prep events",
+      title: "Production Calendar & Scheduling",
+      description: "Synchronize shoot days across all departments with custom prep events for seamless film production workflow",
       icon: Calendar,
     },
     {
-      title: "Private Networks",
-      description: "Keep shifts within your trusted crew circle, not public job boards",
+      title: "Private Crew Networks",
+      description: "Keep daily crew hiring within your trusted professional network, avoiding public job boards for quality control",
       icon: Lock,
     },
     {
-      title: "Streamlined Booking",
-      description: "Replace spreadsheets and WhatsApp with automated availability tracking",
+      title: "Automated Crew Booking",
+      description: "Replace spreadsheets and messaging apps with intelligent crew availability tracking and instant booking confirmations",
       icon: Network,
     },
   ];
 
   return (
-    <section className="py-24 border-y relative z-10 overflow-hidden" style={{ backgroundColor: 'rgb(var(--background))', borderColor: 'rgb(var(--border))' }}>
+    <section className="py-24 border-y relative z-10 overflow-hidden" style={{ backgroundColor: 'rgb(var(--background))', borderColor: 'rgb(var(--border))' }} role="main" aria-labelledby="features-heading">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 50 }}
@@ -67,6 +67,7 @@ export default function Features() {
           className="text-center mb-20"
         >
           <motion.h2 
+            id="features-heading"
             className="text-5xl md:text-6xl font-bold mb-6 tracking-tight"
             style={{ color: 'rgb(var(--foreground))' }}
             initial={{ opacity: 0, scale: 0.9 }}
@@ -74,7 +75,7 @@ export default function Features() {
             transition={{ duration: 0.8, delay: 0.2 }}
             viewport={{ once: true }}
           >
-            Built for Film & TV
+            Professional Crew Hiring Features
           </motion.h2>
         </motion.div>
         
