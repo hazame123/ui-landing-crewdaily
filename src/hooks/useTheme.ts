@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 
-export type Theme = "midnight_studio" | "golden_hour" | "arctic_blue" | "sage_professional" | "charcoal_pro";
+export type Theme = "midnight_studio" | "golden_hour" | "arctic_blue" | "sage_professional" | "charcoal_pro" | "ocean_depths";
 
 export function useTheme() {
   const [theme, setTheme] = useState<Theme>("midnight_studio");
@@ -10,7 +10,7 @@ export function useTheme() {
   useEffect(() => {
     // Get saved theme from localStorage or default to midnight_studio
     const savedTheme = localStorage.getItem("theme") as Theme;
-    const validThemes: Theme[] = ["midnight_studio", "golden_hour", "arctic_blue", "sage_professional", "charcoal_pro"];
+    const validThemes: Theme[] = ["midnight_studio", "golden_hour", "arctic_blue", "sage_professional", "charcoal_pro", "ocean_depths"];
     
     if (savedTheme && validThemes.includes(savedTheme)) {
       setTheme(savedTheme);
@@ -37,7 +37,7 @@ export function useTheme() {
     theme,
     toggleTheme,
     setTheme: setSpecificTheme,
-    isDark: theme === "midnight_studio" || theme === "charcoal_pro",
+    isDark: theme === "midnight_studio" || theme === "charcoal_pro" || theme === "ocean_depths",
     isLight: theme === "golden_hour" || theme === "arctic_blue" || theme === "sage_professional",
   };
 }

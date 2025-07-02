@@ -1,6 +1,6 @@
 "use client";
 
-import { useTheme } from "@/hooks/useTheme";
+import { useTheme, type Theme } from "@/hooks/useTheme";
 import { Palette, ChevronDown } from "lucide-react";
 import { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
@@ -16,9 +16,9 @@ export default function ThemeToggle() {
     { id: "arctic_blue", name: "Arctic Blue", description: "Clean blue tones on crisp white" },
     { id: "sage_professional", name: "Sage Professional", description: "Refined sage and stone palette" },
     { id: "charcoal_pro", name: "Charcoal Pro", description: "Pink accents on premium dark" },
+    { id: "ocean_depths", name: "Ocean Depths", description: "Rich blues on deep slate" },
   ];
 
-  const currentTheme = themes.find(t => t.id === theme) || themes[0];
 
   // Close dropdown when clicking outside
   useEffect(() => {
@@ -82,7 +82,7 @@ export default function ThemeToggle() {
               <motion.button
                 key={themeOption.id}
                 onClick={() => {
-                  setTheme(themeOption.id as any);
+                  setTheme(themeOption.id as Theme);
                   setIsOpen(false);
                 }}
                 className="w-full px-4 py-3 text-left transition-colors duration-150 first:rounded-t-xl last:rounded-b-xl"

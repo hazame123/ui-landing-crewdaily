@@ -184,6 +184,42 @@
   --black: 0 0 0; /* Pure Black */
 }
 
+/* Ocean Depths Theme - Rich deep blue dark theme */
+[data-theme="ocean_depths"] {
+  /* Brand Colors */
+  --primary: 14 165 233; /* Sky-500 */
+  --primary-light: 56 189 248; /* Sky-400 */
+  --primary-dark: 2 132 199; /* Sky-600 */
+  --secondary: 6 182 212; /* Cyan-500 */
+  --secondary-light: 34 211 238; /* Cyan-400 */
+  
+  /* Neutral Colors */
+  --background: 15 23 42; /* Slate-900 */
+  --background-light: 30 41 59; /* Slate-800 */
+  --background-lighter: 51 65 85; /* Slate-700 */
+  --background-lightest: 71 85 105; /* Slate-600 */
+  
+  --foreground: 248 250 252; /* Slate-50 */
+  --foreground-muted: 148 163 184; /* Slate-400 */
+  --foreground-subtle: 100 116 139; /* Slate-500 */
+  --foreground-light: 203 213 225; /* Slate-300 */
+  --foreground-dark: 71 85 105; /* Slate-600 */
+  
+  /* Border Colors */
+  --border: 51 65 85; /* Slate-700 */
+  --border-light: 71 85 105; /* Slate-600 */
+  --border-lighter: 100 116 139; /* Slate-500 */
+  
+  /* State Colors */
+  --success: 34 197 94; /* Green-500 */
+  --error: 239 68 68; /* Red-500 */
+  --error-dark: 220 38 38; /* Red-600 */
+  
+  /* Accent Colors */
+  --accent: 14 165 233; /* Sky-500 */
+  --black: 15 23 42; /* Slate-900 */
+}
+
 @theme inline {
   /* Colors */
   --color-primary: rgb(var(--primary));
