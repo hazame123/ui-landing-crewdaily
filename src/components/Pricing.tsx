@@ -112,7 +112,7 @@ export default function Pricing() {
 
   return (
     <>
-    <section className="py-32 bg-zinc-950 relative z-10">
+    <section className="py-32 relative z-10" style={{ backgroundColor: 'rgb(var(--background))' }}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 50 }}
@@ -122,7 +122,8 @@ export default function Pricing() {
           className="text-center mb-20"
         >
           <motion.h2 
-            className="text-5xl md:text-6xl font-bold text-white mb-6 tracking-tight"
+            className="text-5xl md:text-6xl font-bold mb-6 tracking-tight"
+            style={{ color: 'rgb(var(--foreground))' }}
             initial={{ opacity: 0, scale: 0.9 }}
             whileInView={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8, delay: 0.2 }}
@@ -131,7 +132,8 @@ export default function Pricing() {
             Simple Pricing
           </motion.h2>
           <motion.p 
-            className="text-xl text-zinc-400 font-light"
+            className="text-xl font-light"
+            style={{ color: 'rgb(var(--foreground-muted))' }}
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.4 }}
@@ -162,19 +164,39 @@ export default function Pricing() {
             >
               {/* Background glow effect */}
               <motion.div
-                className={`absolute inset-0 rounded-2xl blur-xl transition-opacity duration-300 ${
-                  plan.popular 
-                    ? "bg-gradient-to-br from-emerald-500/20 to-cyan-500/20 opacity-100" 
-                    : "bg-gradient-to-br from-emerald-500/10 to-cyan-500/10 opacity-0 group-hover:opacity-100"
-                }`}
+                className="absolute inset-0 rounded-2xl blur-xl transition-opacity duration-300"
+                style={{
+                  background: plan.popular 
+                    ? 'linear-gradient(to bottom right, rgb(var(--primary) / 0.2), rgb(var(--secondary) / 0.2))'
+                    : 'linear-gradient(to bottom right, rgb(var(--primary) / 0.1), rgb(var(--secondary) / 0.1))',
+                  opacity: plan.popular ? 1 : 0
+                }}
+                onMouseEnter={(e) => {
+                  if (!plan.popular) e.currentTarget.style.opacity = '1';
+                }}
+                onMouseLeave={(e) => {
+                  if (!plan.popular) e.currentTarget.style.opacity = '0';
+                }}
               />
               
               {/* Card */}
-              <div className={`relative bg-zinc-900 rounded-2xl p-8 border transition-colors duration-300 ${
-                plan.popular 
-                  ? "border-emerald-500/50" 
-                  : "border-zinc-800 group-hover:border-zinc-700"
-              }`}>
+              <div className="relative rounded-2xl p-8 border transition-colors duration-300"
+                style={{
+                  backgroundColor: 'rgb(var(--background-light))',
+                  borderColor: plan.popular 
+                    ? 'rgb(var(--primary) / 0.5)' 
+                    : 'rgb(var(--border))'
+                }}
+                onMouseEnter={(e) => {
+                  if (!plan.popular) {
+                    e.currentTarget.style.borderColor = 'rgb(var(--border-light))';
+                  }
+                }}
+                onMouseLeave={(e) => {
+                  if (!plan.popular) {
+                    e.currentTarget.style.borderColor = 'rgb(var(--border))';
+                  }
+                }}>
                 {plan.popular && (
                   <motion.div
                     className="absolute -top-4 left-1/2 transform -translate-x-1/2"
@@ -183,7 +205,11 @@ export default function Pricing() {
                     transition={{ duration: 0.5, delay: 0.2 + index * 0.1 }}
                     viewport={{ once: true }}
                   >
-                    <span className="bg-gradient-to-r from-emerald-500 to-cyan-500 text-black text-sm font-semibold px-4 py-2 rounded-full">
+                    <span className="text-sm font-semibold px-4 py-2 rounded-full"
+                      style={{
+                        background: 'linear-gradient(to right, rgb(var(--primary)), rgb(var(--secondary)))',
+                        color: 'rgb(var(--black))'
+                      }}>
                       Most Popular
                     </span>
                   </motion.div>
@@ -191,7 +217,8 @@ export default function Pricing() {
 
                 <div className="text-center">
                   <motion.h3 
-                    className="text-2xl font-bold text-white mb-2"
+                    className="text-2xl font-bold mb-2"
+                    style={{ color: 'rgb(var(--foreground))' }}
                     initial={{ opacity: 0 }}
                     whileInView={{ opacity: 1 }}
                     transition={{ duration: 0.6, delay: 0.3 + index * 0.1 }}
@@ -207,12 +234,13 @@ export default function Pricing() {
                     transition={{ duration: 0.6, delay: 0.4 + index * 0.1 }}
                     viewport={{ once: true }}
                   >
-                    <span className="text-4xl font-bold text-white">{plan.price}</span>
-                    <span className="text-zinc-400 font-light">{plan.period}</span>
+                    <span className="text-4xl font-bold" style={{ color: 'rgb(var(--foreground))' }}>{plan.price}</span>
+                    <span className="font-light" style={{ color: 'rgb(var(--foreground-muted))' }}>{plan.period}</span>
                   </motion.div>
                   
                   <motion.p 
-                    className="text-zinc-400 font-light mb-6"
+                    className="font-light mb-6"
+                    style={{ color: 'rgb(var(--foreground-muted))' }}
                     initial={{ opacity: 0 }}
                     whileInView={{ opacity: 1 }}
                     transition={{ duration: 0.6, delay: 0.5 + index * 0.1 }}
@@ -223,7 +251,8 @@ export default function Pricing() {
                   
                   {plan.note && (
                     <motion.p 
-                      className="text-emerald-400 font-semibold text-sm mb-6"
+                      className="font-semibold text-sm mb-6"
+                      style={{ color: 'rgb(var(--accent))' }}
                       initial={{ opacity: 0 }}
                       whileInView={{ opacity: 1 }}
                       transition={{ duration: 0.6, delay: 0.5 + index * 0.1 }}
@@ -253,19 +282,39 @@ export default function Pricing() {
                       }}
                       viewport={{ once: true }}
                     >
-                      <Check className="w-5 h-5 text-emerald-400 flex-shrink-0" />
-                      <span className="text-zinc-300 font-light">{feature}</span>
+                      <Check className="w-5 h-5 flex-shrink-0" style={{ color: 'rgb(var(--accent))' }} />
+                      <span className="font-light" style={{ color: 'rgb(var(--foreground-light))' }}>{feature}</span>
                     </motion.li>
                   ))}
                 </motion.ul>
 
                 <motion.button
                   onClick={() => handleCTAClick(plan.cta)}
-                  className={`w-full py-4 px-6 rounded-xl font-semibold transition-all duration-300 ${
-                    plan.popular
-                      ? "bg-gradient-to-r from-emerald-500 to-cyan-500 text-black hover:from-emerald-400 hover:to-cyan-400"
-                      : "bg-zinc-800 text-white hover:bg-zinc-700 border border-zinc-700 hover:border-zinc-600"
-                  }`}
+                  className="w-full py-4 px-6 rounded-xl font-semibold transition-all duration-300"
+                  style={plan.popular ? {
+                    background: 'linear-gradient(to right, rgb(var(--primary)), rgb(var(--secondary)))',
+                    color: 'rgb(var(--black))'
+                  } : {
+                    backgroundColor: 'rgb(var(--background-lighter))',
+                    color: 'rgb(var(--foreground))',
+                    border: '1px solid rgb(var(--border-light))'
+                  }}
+                  onMouseEnter={(e) => {
+                    if (plan.popular) {
+                      e.currentTarget.style.background = 'linear-gradient(to right, rgb(var(--primary-light)), rgb(var(--secondary-light)))';
+                    } else {
+                      e.currentTarget.style.backgroundColor = 'rgb(var(--background-lightest))';
+                      e.currentTarget.style.borderColor = 'rgb(var(--border-lighter))';
+                    }
+                  }}
+                  onMouseLeave={(e) => {
+                    if (plan.popular) {
+                      e.currentTarget.style.background = 'linear-gradient(to right, rgb(var(--primary)), rgb(var(--secondary)))';
+                    } else {
+                      e.currentTarget.style.backgroundColor = 'rgb(var(--background-lighter))';
+                      e.currentTarget.style.borderColor = 'rgb(var(--border-light))';
+                    }
+                  }}
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
                   initial={{ opacity: 0, y: 20 }}
@@ -287,7 +336,7 @@ export default function Pricing() {
           transition={{ duration: 0.6, delay: 0.4 }}
           viewport={{ once: true }}
         >
-          <p className="text-zinc-400 font-light">
+          <p className="font-light" style={{ color: 'rgb(var(--foreground-muted))' }}>
           </p>
         </motion.div>
       </div>

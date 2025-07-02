@@ -25,7 +25,8 @@ export default function Hero({ heroY, heroOpacity }: HeroProps) {
           transition={{ duration: 1.2, ease: "easeOut" }}
         >
           <motion.h1 
-            className="text-6xl md:text-8xl font-bold text-white mb-8 tracking-tight"
+            className="text-6xl md:text-8xl font-bold mb-8 tracking-tight"
+            style={{ color: 'rgb(var(--foreground))' }}
             initial={{ opacity: 0, y: 50 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, delay: 0.2 }}
@@ -38,7 +39,8 @@ export default function Hero({ heroY, heroOpacity }: HeroProps) {
               Daily Crew Hiring,{" "}
             </motion.span>
             <motion.span 
-              className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-cyan-400"
+              className="text-transparent bg-clip-text"
+              style={{ backgroundImage: 'linear-gradient(to right, rgb(var(--primary-light)), rgb(var(--secondary-light)))' }}
               initial={{ opacity: 0, scale: 0.8 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.8, delay: 0.8 }}
@@ -48,7 +50,8 @@ export default function Hero({ heroY, heroOpacity }: HeroProps) {
           </motion.h1>
           
           <motion.p 
-            className="text-xl md:text-2xl text-zinc-400 mb-12 max-w-2xl mx-auto font-light"
+            className="text-xl md:text-2xl mb-12 max-w-2xl mx-auto font-light"
+            style={{ color: 'rgb(var(--foreground-muted))' }}
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 1 }}
@@ -66,7 +69,17 @@ export default function Hero({ heroY, heroOpacity }: HeroProps) {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 1.2 }}
-            className="px-12 py-4 bg-gradient-to-r from-emerald-500 to-cyan-500 text-black rounded-full font-semibold text-lg hover:from-emerald-400 hover:to-cyan-400 transition-all duration-300 shadow-lg"
+            className="px-12 py-4 rounded-full font-semibold text-lg transition-all duration-300 shadow-lg"
+            style={{
+              background: 'linear-gradient(to right, rgb(var(--primary)), rgb(var(--secondary)))',
+              color: 'rgb(var(--black))'
+            }}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.background = 'linear-gradient(to right, rgb(var(--primary-light)), rgb(var(--secondary-light)))';
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.background = 'linear-gradient(to right, rgb(var(--primary)), rgb(var(--secondary)))';
+            }}
           >
             Get Early Access
           </motion.button>
@@ -75,7 +88,8 @@ export default function Hero({ heroY, heroOpacity }: HeroProps) {
 
       {/* Floating Elements */}
       <motion.div
-        className="absolute top-20 left-10 w-4 h-4 bg-emerald-400/15 rounded-full"
+        className="absolute top-20 left-10 w-4 h-4 rounded-full"
+        style={{ backgroundColor: 'rgb(var(--primary-light) / 0.15)' }}
         animate={{
           y: [0, -10, 0],
           opacity: [0.15, 0.3, 0.15]
@@ -87,7 +101,8 @@ export default function Hero({ heroY, heroOpacity }: HeroProps) {
         }}
       />
       <motion.div
-        className="absolute top-40 right-20 w-6 h-6 bg-cyan-400/15 rounded-full"
+        className="absolute top-40 right-20 w-6 h-6 rounded-full"
+        style={{ backgroundColor: 'rgb(var(--secondary-light) / 0.15)' }}
         animate={{
           y: [0, -15, 0],
           opacity: [0.2, 0.35, 0.2]
@@ -100,7 +115,8 @@ export default function Hero({ heroY, heroOpacity }: HeroProps) {
         }}
       />
       <motion.div
-        className="absolute bottom-20 left-1/4 w-3 h-3 bg-emerald-400/20 rounded-full"
+        className="absolute bottom-20 left-1/4 w-3 h-3 rounded-full"
+        style={{ backgroundColor: 'rgb(var(--primary-light) / 0.2)' }}
         animate={{
           y: [0, -8, 0],
           opacity: [0.15, 0.25, 0.15]

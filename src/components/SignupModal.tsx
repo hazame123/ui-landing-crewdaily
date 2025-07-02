@@ -174,7 +174,8 @@ export default function SignupModal({ isOpen, onClose, initialEmail }: SignupMod
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             onClick={onClose}
-            className="fixed inset-0 bg-black/80 backdrop-blur-sm z-50"
+            className="fixed inset-0 backdrop-blur-sm z-50"
+            style={{ backgroundColor: 'rgb(var(--black) / 0.8)' }}
           />
           
           {/* Modal */}
@@ -185,13 +186,20 @@ export default function SignupModal({ isOpen, onClose, initialEmail }: SignupMod
             transition={{ duration: 0.3, ease: "easeOut" }}
             className="fixed inset-0 z-50 flex items-center justify-center p-4"
           >
-            <div className="bg-zinc-900 rounded-2xl border border-zinc-800 w-full max-w-md p-8 relative">
+            <div className="rounded-2xl border w-full max-w-md p-8 relative" style={{ backgroundColor: 'rgb(var(--background-light))', borderColor: 'rgb(var(--border))' }}>
               {/* Close Button */}
               <motion.button
                 onClick={onClose}
                 whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.9 }}
-                className="absolute top-4 right-4 text-zinc-400 hover:text-white transition-colors"
+                className="absolute top-4 right-4 transition-colors"
+                style={{ color: 'rgb(var(--foreground-muted))' }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.color = 'rgb(var(--foreground))';
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.color = 'rgb(var(--foreground-muted))';
+                }}
               >
                 <X className="w-6 h-6" />
               </motion.button>
@@ -203,8 +211,8 @@ export default function SignupModal({ isOpen, onClose, initialEmail }: SignupMod
                 transition={{ delay: 0.1 }}
                 className="text-center mb-8"
               >
-                <h2 className="text-3xl font-bold text-white mb-2">Get Early Access <span className="text-emerald-400">Free</span></h2>
-                <p className="text-zinc-400 font-light">
+                <h2 className="text-3xl font-bold mb-2" style={{ color: 'rgb(var(--foreground))' }}>Get Early Access <span style={{ color: 'rgb(var(--accent))' }}>Free</span></h2>
+                <p className="font-light" style={{ color: 'rgb(var(--foreground-muted))' }}>
                   Sign up before Sep 2025 for your first year <strong>free</strong>
                 </p>
               </motion.div>
@@ -221,7 +229,7 @@ export default function SignupModal({ isOpen, onClose, initialEmail }: SignupMod
                 {/* Name Fields */}
                 <div className="grid grid-cols-2 gap-4">
                   <div>
-                    <label htmlFor="firstName" className="block text-sm font-medium text-zinc-300 mb-2">
+                    <label htmlFor="firstName" className="block text-sm font-medium mb-2" style={{ color: 'rgb(var(--foreground-light))' }}>
                       First Name
                     </label>
                     <input
@@ -230,25 +238,33 @@ export default function SignupModal({ isOpen, onClose, initialEmail }: SignupMod
                       name="firstName"
                       value={formData.firstName}
                       onChange={handleChange}
-                      className={`w-full px-4 py-3 bg-zinc-800 border rounded-xl text-white placeholder-zinc-500 focus:outline-none transition-colors ${
-                        errors.firstName 
-                          ? "border-red-500 focus:border-red-400" 
-                          : "border-zinc-700 focus:border-emerald-400"
-                      }`}
+                      className="w-full px-4 py-3 border rounded-xl focus:outline-none transition-colors"
+                      style={{
+                        backgroundColor: 'rgb(var(--background-lighter))',
+                        borderColor: errors.firstName ? 'rgb(var(--error-dark))' : 'rgb(var(--border-light))',
+                        color: 'rgb(var(--foreground))'
+                      }}
+                      onFocus={(e) => {
+                        e.currentTarget.style.borderColor = errors.firstName ? 'rgb(var(--error))' : 'rgb(var(--accent))';
+                      }}
+                      onBlur={(e) => {
+                        e.currentTarget.style.borderColor = errors.firstName ? 'rgb(var(--error-dark))' : 'rgb(var(--border-light))';
+                      }}
                       placeholder="First name"
                     />
                     {errors.firstName && (
                       <motion.p
                         initial={{ opacity: 0, y: -10 }}
                         animate={{ opacity: 1, y: 0 }}
-                        className="text-red-400 text-sm mt-1 font-light"
+                        className="text-sm mt-1 font-light"
+                        style={{ color: 'rgb(var(--error))' }}
                       >
                         {errors.firstName}
                       </motion.p>
                     )}
                   </div>
                   <div>
-                    <label htmlFor="lastName" className="block text-sm font-medium text-zinc-300 mb-2">
+                    <label htmlFor="lastName" className="block text-sm font-medium mb-2" style={{ color: 'rgb(var(--foreground-light))' }}>
                       Last Name
                     </label>
                     <input
@@ -257,18 +273,26 @@ export default function SignupModal({ isOpen, onClose, initialEmail }: SignupMod
                       name="lastName"
                       value={formData.lastName}
                       onChange={handleChange}
-                      className={`w-full px-4 py-3 bg-zinc-800 border rounded-xl text-white placeholder-zinc-500 focus:outline-none transition-colors ${
-                        errors.lastName 
-                          ? "border-red-500 focus:border-red-400" 
-                          : "border-zinc-700 focus:border-emerald-400"
-                      }`}
+                      className="w-full px-4 py-3 border rounded-xl focus:outline-none transition-colors"
+                      style={{
+                        backgroundColor: 'rgb(var(--background-lighter))',
+                        borderColor: errors.lastName ? 'rgb(var(--error-dark))' : 'rgb(var(--border-light))',
+                        color: 'rgb(var(--foreground))'
+                      }}
+                      onFocus={(e) => {
+                        e.currentTarget.style.borderColor = errors.lastName ? 'rgb(var(--error))' : 'rgb(var(--accent))';
+                      }}
+                      onBlur={(e) => {
+                        e.currentTarget.style.borderColor = errors.lastName ? 'rgb(var(--error-dark))' : 'rgb(var(--border-light))';
+                      }}
                       placeholder="Last name"
                     />
                     {errors.lastName && (
                       <motion.p
                         initial={{ opacity: 0, y: -10 }}
                         animate={{ opacity: 1, y: 0 }}
-                        className="text-red-400 text-sm mt-1 font-light"
+                        className="text-sm mt-1 font-light"
+                        style={{ color: 'rgb(var(--error))' }}
                       >
                         {errors.lastName}
                       </motion.p>
@@ -278,7 +302,7 @@ export default function SignupModal({ isOpen, onClose, initialEmail }: SignupMod
 
                 {/* Email */}
                 <div>
-                  <label htmlFor="email" className="block text-sm font-medium text-zinc-300 mb-2">
+                  <label htmlFor="email" className="block text-sm font-medium mb-2" style={{ color: 'rgb(var(--foreground-light))' }}>
                     Email Address
                   </label>
                   <input
@@ -287,18 +311,26 @@ export default function SignupModal({ isOpen, onClose, initialEmail }: SignupMod
                     name="email"
                     value={formData.email}
                     onChange={handleChange}
-                    className={`w-full px-4 py-3 bg-zinc-800 border rounded-xl text-white placeholder-zinc-500 focus:outline-none transition-colors ${
-                      errors.email 
-                        ? "border-red-500 focus:border-red-400" 
-                        : "border-zinc-700 focus:border-emerald-400"
-                    }`}
+                    className="w-full px-4 py-3 border rounded-xl focus:outline-none transition-colors"
+                    style={{
+                      backgroundColor: 'rgb(var(--background-lighter))',
+                      borderColor: errors.email ? 'rgb(var(--error-dark))' : 'rgb(var(--border-light))',
+                      color: 'rgb(var(--foreground))'
+                    }}
+                    onFocus={(e) => {
+                      e.currentTarget.style.borderColor = errors.email ? 'rgb(var(--error))' : 'rgb(var(--accent))';
+                    }}
+                    onBlur={(e) => {
+                      e.currentTarget.style.borderColor = errors.email ? 'rgb(var(--error-dark))' : 'rgb(var(--border-light))';
+                    }}
                     placeholder="your@email.com"
                   />
                   {errors.email && (
                     <motion.p
                       initial={{ opacity: 0, y: -10 }}
                       animate={{ opacity: 1, y: 0 }}
-                      className="text-red-400 text-sm mt-1 font-light"
+                      className="text-sm mt-1 font-light"
+                      style={{ color: 'rgb(var(--error))' }}
                     >
                       {errors.email}
                     </motion.p>
@@ -307,28 +339,35 @@ export default function SignupModal({ isOpen, onClose, initialEmail }: SignupMod
 
                 {/* Department */}
                 <div>
-                  <label htmlFor="department" className="block text-sm font-medium text-zinc-300 mb-2">
+                  <label htmlFor="department" className="block text-sm font-medium mb-2" style={{ color: 'rgb(var(--foreground-light))' }}>
                     Primary Department
                   </label>
                   <div className="relative" ref={dropdownRef}>
                     <motion.button
                       type="button"
                       onClick={() => setIsDropdownOpen(!isDropdownOpen)}
-                      className={`w-full px-4 py-3 pr-6 bg-zinc-800 border rounded-xl text-white focus:outline-none transition-colors text-left flex items-center justify-between ${
-                        errors.department 
-                          ? "border-red-500 focus:border-red-400" 
-                          : "border-zinc-700 focus:border-emerald-400"
-                      }`}
+                      className="w-full px-4 py-3 pr-6 border rounded-xl focus:outline-none transition-colors text-left flex items-center justify-between"
+                      style={{
+                        backgroundColor: 'rgb(var(--background-lighter))',
+                        borderColor: errors.department ? 'rgb(var(--error-dark))' : 'rgb(var(--border-light))',
+                        color: 'rgb(var(--foreground))'
+                      }}
+                      onFocus={(e) => {
+                        e.currentTarget.style.borderColor = errors.department ? 'rgb(var(--error))' : 'rgb(var(--accent))';
+                      }}
+                      onBlur={(e) => {
+                        e.currentTarget.style.borderColor = errors.department ? 'rgb(var(--error-dark))' : 'rgb(var(--border-light))';
+                      }}
                       whileTap={{ scale: 0.98 }}
                     >
-                      <span className={formData.department ? "text-white" : "text-zinc-500"}>
+                      <span style={{ color: formData.department ? 'rgb(var(--foreground))' : 'rgb(var(--foreground-muted))' }}>
                         {formData.department || "Select your department"}
                       </span>
                       <motion.div
                         animate={{ rotate: isDropdownOpen ? 180 : 0 }}
                         transition={{ duration: 0.2 }}
                       >
-                        <ChevronDown className="w-5 h-5 text-zinc-400" />
+                        <ChevronDown className="w-5 h-5" style={{ color: 'rgb(var(--foreground-muted))' }} />
                       </motion.div>
                     </motion.button>
                     
@@ -339,7 +378,8 @@ export default function SignupModal({ isOpen, onClose, initialEmail }: SignupMod
                           animate={{ opacity: 1, y: 0, scale: 1 }}
                           exit={{ opacity: 0, y: -10, scale: 0.95 }}
                           transition={{ duration: 0.2 }}
-                          className="absolute top-full mt-1 w-full bg-zinc-800 border border-zinc-700 rounded-xl shadow-xl z-50 max-h-60 overflow-y-auto"
+                          className="absolute top-full mt-1 w-full border rounded-xl shadow-xl z-50 max-h-60 overflow-y-auto"
+                          style={{ backgroundColor: 'rgb(var(--background-lighter))', borderColor: 'rgb(var(--border-light))' }}
                         >
                           {departments.map((dept) => (
                             <button
@@ -353,7 +393,14 @@ export default function SignupModal({ isOpen, onClose, initialEmail }: SignupMod
                                   setErrors({ ...errors, department: "" });
                                 }
                               }}
-                              className="w-full px-4 py-3 text-left text-white hover:bg-zinc-700 transition-colors duration-75 first:rounded-t-xl last:rounded-b-xl"
+                              className="w-full px-4 py-3 text-left transition-colors duration-75 first:rounded-t-xl last:rounded-b-xl"
+                              style={{ color: 'rgb(var(--foreground))' }}
+                              onMouseEnter={(e) => {
+                                e.currentTarget.style.backgroundColor = 'rgb(var(--background-lightest))';
+                              }}
+                              onMouseLeave={(e) => {
+                                e.currentTarget.style.backgroundColor = 'transparent';
+                              }}
                             >
                               {dept}
                             </button>
@@ -366,7 +413,8 @@ export default function SignupModal({ isOpen, onClose, initialEmail }: SignupMod
                     <motion.p
                       initial={{ opacity: 0, y: -10 }}
                       animate={{ opacity: 1, y: 0 }}
-                      className="text-red-400 text-sm mt-1 font-light"
+                      className="text-sm mt-1 font-light"
+                      style={{ color: 'rgb(var(--error))' }}
                     >
                       {errors.department}
                     </motion.p>
@@ -378,7 +426,12 @@ export default function SignupModal({ isOpen, onClose, initialEmail }: SignupMod
                   <motion.div
                     initial={{ opacity: 0, y: -10 }}
                     animate={{ opacity: 1, y: 0 }}
-                    className="text-red-400 text-sm text-center font-light bg-red-500/10 border border-red-500/20 rounded-xl p-3"
+                    className="text-sm text-center font-light border rounded-xl p-3"
+                    style={{
+                      color: 'rgb(var(--error))',
+                      backgroundColor: 'rgb(var(--error) / 0.1)',
+                      borderColor: 'rgb(var(--error) / 0.2)'
+                    }}
                   >
                     {errors.submit}
                   </motion.div>
@@ -389,7 +442,12 @@ export default function SignupModal({ isOpen, onClose, initialEmail }: SignupMod
                   <motion.div
                     initial={{ opacity: 0, scale: 0.95 }}
                     animate={{ opacity: 1, scale: 1 }}
-                    className="text-emerald-400 text-center font-semibold bg-emerald-500/10 border border-emerald-500/20 rounded-xl p-4"
+                    className="text-center font-semibold border rounded-xl p-4"
+                    style={{
+                      color: 'rgb(var(--success))',
+                      backgroundColor: 'rgb(var(--success) / 0.1)',
+                      borderColor: 'rgb(var(--success) / 0.2)'
+                    }}
                   >
                     🎉 Success! You&apos;re on the early access list.
                   </motion.div>
@@ -401,19 +459,35 @@ export default function SignupModal({ isOpen, onClose, initialEmail }: SignupMod
                   disabled={isSubmitting || submitSuccess}
                   whileHover={!isSubmitting && !submitSuccess ? { scale: 1.02 } : {}}
                   whileTap={!isSubmitting && !submitSuccess ? { scale: 0.98 } : {}}
-                  className={`w-full py-4 rounded-xl font-semibold text-lg transition-all duration-300 shadow-lg ${
-                    submitSuccess
-                      ? "bg-emerald-600 text-white cursor-not-allowed"
-                      : isSubmitting
-                      ? "bg-zinc-700 text-zinc-400 cursor-not-allowed"
-                      : "bg-gradient-to-r from-emerald-500 to-cyan-500 text-black hover:from-emerald-400 hover:to-cyan-400"
-                  }`}
+                  className="w-full py-4 rounded-xl font-semibold text-lg transition-all duration-300 shadow-lg"
+                  style={submitSuccess ? {
+                    backgroundColor: 'rgb(var(--primary-dark))',
+                    color: 'rgb(var(--foreground))',
+                    cursor: 'not-allowed'
+                  } : isSubmitting ? {
+                    backgroundColor: 'rgb(var(--background-lightest))',
+                    color: 'rgb(var(--foreground-muted))',
+                    cursor: 'not-allowed'
+                  } : {
+                    background: 'linear-gradient(to right, rgb(var(--primary)), rgb(var(--secondary)))',
+                    color: 'rgb(var(--black))'
+                  }}
+                  onMouseEnter={(e) => {
+                    if (!isSubmitting && !submitSuccess) {
+                      e.currentTarget.style.background = 'linear-gradient(to right, rgb(var(--primary-light)), rgb(var(--secondary-light)))';
+                    }
+                  }}
+                  onMouseLeave={(e) => {
+                    if (!isSubmitting && !submitSuccess) {
+                      e.currentTarget.style.background = 'linear-gradient(to right, rgb(var(--primary)), rgb(var(--secondary)))';
+                    }
+                  }}
                 >
                   {submitSuccess ? "✓ Signed Up!" : isSubmitting ? "Signing Up..." : "Get Early Access"}
                 </motion.button>
 
                 {/* Terms */}
-                <p className="text-xs text-zinc-500 text-center">
+                <p className="text-xs text-center" style={{ color: 'rgb(var(--foreground-subtle))' }}>
                   By signing up, you agree to our Terms of Service and Privacy Policy
                 </p>
               </motion.form>

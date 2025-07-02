@@ -1,26 +1,249 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* Default theme variables will be set by theme classes */
+}
+
+/* Midnight Studio Theme */
+[data-theme="midnight_studio"], :root {
+  /* Brand Colors */
+  --primary: 16 185 129; /* emerald-500 */
+  --primary-light: 52 211 153; /* emerald-400 */
+  --primary-dark: 6 120 86; /* emerald-600 */
+  --secondary: 34 197 214; /* cyan-500 */
+  --secondary-light: 103 232 249; /* cyan-400 */
+  
+  /* Neutral Colors */
+  --background: 9 9 11; /* zinc-950 */
+  --background-light: 24 24 27; /* zinc-900 */
+  --background-lighter: 39 39 42; /* zinc-800 */
+  --background-lightest: 63 63 70; /* zinc-700 */
+  
+  --foreground: 255 255 255; /* white */
+  --foreground-muted: 161 161 170; /* zinc-400 */
+  --foreground-subtle: 115 115 115; /* zinc-500 */
+  --foreground-light: 212 212 216; /* zinc-300 */
+  --foreground-dark: 63 63 70; /* zinc-700 */
+  
+  /* Border Colors */
+  --border: 39 39 42; /* zinc-800 */
+  --border-light: 63 63 70; /* zinc-700 */
+  --border-lighter: 82 82 91; /* zinc-600 */
+  
+  /* State Colors */
+  --success: 52 211 153; /* emerald-400 */
+  --error: 248 113 113; /* red-400 */
+  --error-dark: 239 68 68; /* red-500 */
+  
+  /* Accent Colors */
+  --accent: 52 211 153; /* emerald-400 */
+  --black: 0 0 0;
+}
+
+/* Golden Hour Theme */
+[data-theme="golden_hour"] {
+  /* Brand Colors - using Olive Green and Slate Blue from palette */
+  --primary: 141 149 84; /* Olive Green #8d9554 */
+  --primary-light: 181 188 136; /* Lighter Olive Green */
+  --primary-dark: 112 118 67; /* Darker Olive Green */
+  --secondary: 93 107 130; /* Slate Blue #5d6b82 */
+  --secondary-light: 104 138 163; /* Cool Teal #688aa3 */
+  
+  /* Neutral Colors - using Soft Beige as base */
+  --background: 253 249 233; /* Soft Beige #fdf9e9 */
+  --background-light: 249 244 226; /* Slightly darker beige */
+  --background-lighter: 234 234 202; /* Light Grey #eaeaca */
+  --background-lightest: 119 119 124; /* Mid Grey #7c7c7c */
+  
+  --foreground: 34 34 36; /* Charcoal #2f2f2f */
+  --foreground-muted: 119 119 124; /* Mid Grey #7c7c7c */
+  --foreground-subtle: 170 161 01; /* Burnt Orange #aa601a */
+  --foreground-light: 93 107 130; /* Slate Blue #5d6b82 */
+  --foreground-dark: 34 34 36; /* Charcoal #2f2f2f */
+  
+  /* Border Colors */
+  --border: 234 234 202; /* Light Grey #eaeaca */
+  --border-light: 119 119 124; /* Mid Grey #7c7c7c */
+  --border-lighter: 93 107 130; /* Slate Blue #5d6b82 */
+  
+  /* State Colors */
+  --success: 141 149 84; /* Olive Green #8d9554 */
+  --error: 170 161 01; /* Burnt Orange #aa601a */
+  --error-dark: 153 145 01; /* Darker Burnt Orange */
+  
+  /* Accent Colors */
+  --accent: 255 179 71; /* Amber Gold #ffb347 */
+  --black: 34 34 36; /* Charcoal #2f2f2f */
+}
+
+/* Arctic Blue Theme - Clean, minimal light theme */
+[data-theme="arctic_blue"] {
+  /* Brand Colors */
+  --primary: 59 130 246; /* Blue-500 */
+  --primary-light: 96 165 250; /* Blue-400 */
+  --primary-dark: 37 99 235; /* Blue-600 */
+  --secondary: 99 102 241; /* Indigo-500 */
+  --secondary-light: 129 140 248; /* Indigo-400 */
+  
+  /* Neutral Colors */
+  --background: 248 250 252; /* Slate-50 */
+  --background-light: 241 245 249; /* Slate-100 */
+  --background-lighter: 226 232 240; /* Slate-200 */
+  --background-lightest: 203 213 225; /* Slate-300 */
+  
+  --foreground: 15 23 42; /* Slate-900 */
+  --foreground-muted: 100 116 139; /* Slate-500 */
+  --foreground-subtle: 148 163 184; /* Slate-400 */
+  --foreground-light: 71 85 105; /* Slate-600 */
+  --foreground-dark: 30 41 59; /* Slate-800 */
+  
+  /* Border Colors */
+  --border: 226 232 240; /* Slate-200 */
+  --border-light: 203 213 225; /* Slate-300 */
+  --border-lighter: 148 163 184; /* Slate-400 */
+  
+  /* State Colors */
+  --success: 34 197 94; /* Green-500 */
+  --error: 239 68 68; /* Red-500 */
+  --error-dark: 220 38 38; /* Red-600 */
+  
+  /* Accent Colors */
+  --accent: 59 130 246; /* Blue-500 */
+  --black: 15 23 42; /* Slate-900 */
+}
+
+/* Sage Professional Theme - Sophisticated light theme */
+[data-theme="sage_professional"] {
+  /* Brand Colors */
+  --primary: 132 164 152; /* Sage Green #84a498 */
+  --primary-light: 165 194 181; /* Light Sage */
+  --primary-dark: 105 131 121; /* Dark Sage */
+  --secondary: 116 142 154; /* Steel Blue #748e9a */
+  --secondary-light: 147 173 185; /* Light Steel */
+  
+  /* Neutral Colors */
+  --background: 250 250 249; /* Stone-50 */
+  --background-light: 245 245 244; /* Stone-100 */
+  --background-lighter: 231 229 228; /* Stone-200 */
+  --background-lightest: 214 211 209; /* Stone-300 */
+  
+  --foreground: 41 37 36; /* Stone-800 */
+  --foreground-muted: 120 113 108; /* Stone-500 */
+  --foreground-subtle: 168 162 158; /* Stone-400 */
+  --foreground-light: 87 83 78; /* Stone-600 */
+  --foreground-dark: 68 64 60; /* Stone-700 */
+  
+  /* Border Colors */
+  --border: 231 229 228; /* Stone-200 */
+  --border-light: 214 211 209; /* Stone-300 */
+  --border-lighter: 168 162 158; /* Stone-400 */
+  
+  /* State Colors */
+  --success: 132 164 152; /* Sage Green */
+  --error: 220 86 73; /* Warm Red */
+  --error-dark: 185 66 55; /* Dark Warm Red */
+  
+  /* Accent Colors */
+  --accent: 116 142 154; /* Steel Blue */
+  --black: 41 37 36; /* Stone-800 */
+}
+
+/* Charcoal Pro Theme - Premium dark theme */
+[data-theme="charcoal_pro"] {
+  /* Brand Colors */
+  --primary: 236 72 153; /* Pink-500 */
+  --primary-light: 244 114 182; /* Pink-400 */
+  --primary-dark: 219 39 119; /* Pink-600 */
+  --secondary: 168 85 247; /* Purple-500 */
+  --secondary-light: 196 181 253; /* Purple-300 */
+  
+  /* Neutral Colors */
+  --background: 23 23 23; /* Neutral-900 */
+  --background-light: 38 38 38; /* Neutral-800 */
+  --background-lighter: 64 64 64; /* Neutral-700 */
+  --background-lightest: 82 82 82; /* Neutral-600 */
+  
+  --foreground: 250 250 250; /* Neutral-50 */
+  --foreground-muted: 163 163 163; /* Neutral-400 */
+  --foreground-subtle: 115 115 115; /* Neutral-500 */
+  --foreground-light: 212 212 212; /* Neutral-300 */
+  --foreground-dark: 82 82 82; /* Neutral-600 */
+  
+  /* Border Colors */
+  --border: 64 64 64; /* Neutral-700 */
+  --border-light: 82 82 82; /* Neutral-600 */
+  --border-lighter: 115 115 115; /* Neutral-500 */
+  
+  /* State Colors */
+  --success: 34 197 94; /* Green-500 */
+  --error: 239 68 68; /* Red-500 */
+  --error-dark: 220 38 38; /* Red-600 */
+  
+  /* Accent Colors */
+  --accent: 236 72 153; /* Pink-500 */
+  --black: 0 0 0; /* Pure Black */
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
+  /* Colors */
+  --color-primary: rgb(var(--primary));
+  --color-primary-light: rgb(var(--primary-light));
+  --color-primary-dark: rgb(var(--primary-dark));
+  --color-secondary: rgb(var(--secondary));
+  --color-secondary-light: rgb(var(--secondary-light));
+  
+  --color-background: rgb(var(--background));
+  --color-background-light: rgb(var(--background-light));
+  --color-background-lighter: rgb(var(--background-lighter));
+  --color-background-lightest: rgb(var(--background-lightest));
+  
+  --color-foreground: rgb(var(--foreground));
+  --color-foreground-muted: rgb(var(--foreground-muted));
+  --color-foreground-subtle: rgb(var(--foreground-subtle));
+  --color-foreground-light: rgb(var(--foreground-light));
+  --color-foreground-dark: rgb(var(--foreground-dark));
+  
+  --color-border: rgb(var(--border));
+  --color-border-light: rgb(var(--border-light));
+  --color-border-lighter: rgb(var(--border-lighter));
+  
+  --color-success: rgb(var(--success));
+  --color-error: rgb(var(--error));
+  --color-error-dark: rgb(var(--error-dark));
+  --color-accent: rgb(var(--accent));
+  --color-black: rgb(var(--black));
+  
+  /* Semantic Color Mapping */
+  --color-brand-primary: rgb(var(--primary));
+  --color-brand-secondary: rgb(var(--secondary));
+  
+  /* Background Variants */
+  --color-bg-primary: rgb(var(--background));
+  --color-bg-secondary: rgb(var(--background-light));
+  --color-bg-tertiary: rgb(var(--background-lighter));
+  --color-bg-quaternary: rgb(var(--background-lightest));
+  
+  /* Text Variants */
+  --color-text-primary: rgb(var(--foreground));
+  --color-text-secondary: rgb(var(--foreground-muted));
+  --color-text-tertiary: rgb(var(--foreground-subtle));
+  --color-text-accent: rgb(var(--accent));
+  
+  /* Border Variants */
+  --color-border-primary: rgb(var(--border));
+  --color-border-secondary: rgb(var(--border-light));
+  --color-border-tertiary: rgb(var(--border-lighter));
+  
+  /* State Colors */
+  --color-state-success: rgb(var(--success));
+  --color-state-error: rgb(var(--error));
+  
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
 body {
-  background: var(--background);
-  color: var(--foreground);
+  background: rgb(var(--background));
+  color: rgb(var(--foreground));
   font-family: Arial, Helvetica, sans-serif;
 }
