@@ -46,7 +46,7 @@ export default function Newsletter() {
             transition={{ duration: 0.8, delay: 0.2 }}
             viewport={{ once: true }}
           >
-Join the Early Access List
+Join the Film Crew Network
           </motion.h2>
           
           <motion.p 
@@ -57,7 +57,7 @@ Join the Early Access List
             transition={{ duration: 0.6, delay: 0.4 }}
             viewport={{ once: true }}
           >
-Sign up before September 2025 and get your Daily Crew membership free for a full year
+Join the professional film crew hiring platform for international productions filming in the UK. Connect with experienced British crew and streamline your production workflow.
           </motion.p>
           
           <motion.form 

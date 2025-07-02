@@ -14,7 +14,7 @@ export default function Hero({ heroY, heroOpacity }: HeroProps) {
 
   return (
     <>
-    <section className="relative overflow-hidden min-h-screen flex items-center justify-center">
+    <section className="relative overflow-hidden min-h-screen flex items-center justify-center" role="banner">
       <motion.div
         style={{ y: heroY, opacity: heroOpacity }}
         className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10"
@@ -36,7 +36,7 @@ export default function Hero({ heroY, heroOpacity }: HeroProps) {
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8, delay: 0.5 }}
             >
-              Daily Crew Hiring,{" "}
+              Professional Film Crew Hiring,{" "}
             </motion.span>
             <motion.span 
               className="text-transparent bg-clip-text"
@@ -56,7 +56,7 @@ export default function Hero({ heroY, heroOpacity }: HeroProps) {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 1 }}
           >
-            Replace spreadsheets and WhatsApp with streamlined crew management for film & TV productions
+            Connect with professional UK film crew for international productions. Streamline bookings. Build your network.
           </motion.p>
           
           <motion.button
@@ -81,7 +81,7 @@ export default function Hero({ heroY, heroOpacity }: HeroProps) {
               e.currentTarget.style.background = 'linear-gradient(to right, rgb(var(--primary)), rgb(var(--secondary)))';
             }}
           >
-            Get Early Access
+            Join Film Crew Network
           </motion.button>
         </motion.div>
       </motion.div>
