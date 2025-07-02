@@ -9,6 +9,7 @@ import SocialProof from "@/components/SocialProof";
 import Pricing from "@/components/Pricing";
 import Newsletter from "@/components/Newsletter";
 import Footer from "@/components/Footer";
+import ThemeToggle from "@/components/ThemeToggle";
 
 export default function Home() {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -29,19 +30,23 @@ export default function Home() {
   const heroOpacity = useTransform(smoothProgress, [0, 0.3], [1, 0]);
 
   return (
-    <div ref={containerRef} className="min-h-screen bg-zinc-950 relative">
+    <div ref={containerRef} className="min-h-screen relative" style={{ backgroundColor: 'rgb(var(--background))' }}>
       {/* Animated Background */}
       <motion.div className="fixed inset-0 z-0" style={{ y: backgroundY }}>
-        <div className="absolute inset-0 bg-gradient-to-br from-zinc-900/30 via-emerald-950/10 to-zinc-950"></div>
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(16,185,129,0.1),transparent_50%)]"></div>
+        <div className="absolute inset-0" style={{ background: `linear-gradient(to bottom right, rgb(var(--background-light) / 0.3), rgb(var(--primary) / 0.1), rgb(var(--background)))` }}></div>
+        <div className="absolute inset-0" style={{ background: `radial-gradient(circle at 50% 50%, rgb(var(--primary) / 0.1), transparent 50%)` }}></div>
       </motion.div>
 
       {/* Scroll Progress Indicator */}
       <motion.div
-        className="fixed top-0 left-0 right-0 h-1 bg-gradient-to-r from-emerald-400 to-cyan-400 origin-left z-50"
-        style={{ scaleX: smoothProgress }}
+        className="fixed top-0 left-0 right-0 h-1 origin-left z-50"
+        style={{ 
+          scaleX: smoothProgress,
+          background: `linear-gradient(to right, rgb(var(--primary-light)), rgb(var(--secondary-light)))`
+        }}
       />
 
+      <ThemeToggle />
       <Hero heroY={heroY} heroOpacity={heroOpacity} />
       <HowItWorks />
       <Features />

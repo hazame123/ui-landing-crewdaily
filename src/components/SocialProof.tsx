@@ -39,7 +39,7 @@ export default function SocialProof() {
   ];
 
   return (
-    <section className="py-24 bg-zinc-900 relative z-10">
+    <section className="py-24 relative z-10" style={{ backgroundColor: 'rgb(var(--background-light))' }}>
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <motion.div
           initial={{ opacity: 0, y: 50 }}
@@ -48,7 +48,8 @@ export default function SocialProof() {
           viewport={{ once: true }}
         >
           <motion.h2
-            className="text-4xl md:text-5xl font-bold text-white mb-12 tracking-tight"
+            className="text-4xl md:text-5xl font-bold mb-12 tracking-tight"
+            style={{ color: 'rgb(var(--foreground))' }}
             initial={{ opacity: 0, scale: 0.9 }}
             whileInView={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8, delay: 0.2 }}
@@ -76,7 +77,8 @@ export default function SocialProof() {
               >
                 {/* Glow effect */}
                 <motion.div
-                  className="absolute inset-0 bg-gradient-to-br from-emerald-400/20 to-cyan-400/20 rounded-xl blur-lg"
+                  className="absolute inset-0 rounded-xl blur-lg"
+                  style={{ background: 'linear-gradient(to bottom right, rgb(var(--primary-light) / 0.2), rgb(var(--secondary-light) / 0.2))' }}
                   initial={{ opacity: 0 }}
                   whileHover={{ opacity: 1 }}
                   transition={{ duration: 0.3 }}
@@ -84,7 +86,8 @@ export default function SocialProof() {
 
                 <div className="relative z-10 p-6">
                   <motion.div
-                    className="text-5xl font-bold text-emerald-400 mb-2"
+                    className="text-5xl font-bold mb-2"
+                    style={{ color: 'rgb(var(--accent))' }}
                     initial={{ scale: 0.8, opacity: 0 }}
                     whileInView={{ scale: 1, opacity: 1 }}
                     transition={{
@@ -98,7 +101,8 @@ export default function SocialProof() {
                     {stat.number}
                   </motion.div>
                   <motion.div
-                    className="text-zinc-400 font-light"
+                    className="font-light"
+                    style={{ color: 'rgb(var(--foreground-muted))' }}
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.6, delay: 0.4 + index * 0.2 }}

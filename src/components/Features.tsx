@@ -57,7 +57,7 @@ export default function Features() {
   ];
 
   return (
-    <section className="py-24 bg-zinc-950 border-y border-zinc-800 relative z-10 overflow-hidden">
+    <section className="py-24 border-y relative z-10 overflow-hidden" style={{ backgroundColor: 'rgb(var(--background))', borderColor: 'rgb(var(--border))' }}>
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 50 }}
@@ -67,7 +67,8 @@ export default function Features() {
           className="text-center mb-20"
         >
           <motion.h2 
-            className="text-5xl md:text-6xl font-bold text-white mb-6 tracking-tight"
+            className="text-5xl md:text-6xl font-bold mb-6 tracking-tight"
+            style={{ color: 'rgb(var(--foreground))' }}
             initial={{ opacity: 0, scale: 0.9 }}
             whileInView={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8, delay: 0.2 }}
@@ -96,7 +97,8 @@ export default function Features() {
             >
               {/* Animated border */}
               <motion.div
-                className="absolute inset-0 bg-gradient-to-r from-emerald-500/20 to-cyan-500/20 rounded-lg"
+                className="absolute inset-0 rounded-lg"
+                style={{ background: 'linear-gradient(to right, rgb(var(--primary) / 0.2), rgb(var(--secondary) / 0.2))' }}
                 initial={{ opacity: 0, scale: 0.8 }}
                 whileHover={{ 
                   opacity: 1, 
@@ -117,11 +119,12 @@ export default function Features() {
                   }}
                   viewport={{ once: true }}
                 >
-                  <feature.icon className="w-12 h-12 text-emerald-400 mb-6" />
+                  <feature.icon className="w-12 h-12 mb-6" style={{ color: 'rgb(var(--accent))' }} />
                 </motion.div>
                 
                 <motion.h3 
-                  className="text-2xl font-bold text-white mb-4"
+                  className="text-2xl font-bold mb-4"
+                  style={{ color: 'rgb(var(--foreground))' }}
                   initial={{ opacity: 0, x: -20 }}
                   whileInView={{ opacity: 1, x: 0 }}
                   transition={{ duration: 0.6, delay: 0.2 + index * 0.1 }}
@@ -131,7 +134,8 @@ export default function Features() {
                 </motion.h3>
                 
                 <motion.p 
-                  className="text-zinc-400 text-lg font-light leading-relaxed"
+                  className="text-lg font-light leading-relaxed"
+                  style={{ color: 'rgb(var(--foreground-muted))' }}
                   initial={{ opacity: 0, x: -20 }}
                   whileInView={{ opacity: 1, x: 0 }}
                   transition={{ duration: 0.6, delay: 0.4 + index * 0.1 }}
